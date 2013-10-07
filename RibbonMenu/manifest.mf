@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+OpenIDE-Module: org.alidron.ribbon
+OpenIDE-Module-Layer: org/alidron/ribbon/layer.xml
+OpenIDE-Module-Install: org/alidron/ribbon/nimbus/Installer.class
+OpenIDE-Module-Localizing-Bundle: org/alidron/ribbon/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+

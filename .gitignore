@@ -1,6 +1,13 @@
 *.class
 
 # Package Files #
-*.jar
+#*.jar
 *.war
 *.ear
+/JmDNS/build/
+/jfxrt/build/
+/JmDNSTest/build/
+/build/
+/ShapeSample/build/
+/RibbonMenu/build/
+#/dist/

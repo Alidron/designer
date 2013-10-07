@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE filesystem PUBLIC "-//NetBeans//DTD Filesystem 1.2//EN" "http://www.netbeans.org/dtds/filesystem-1_2.dtd">
+<filesystem>
+    <folder name="Ribbon">
+        <folder name="AppMenu">
+            <attr name="position" intvalue="0"/>
+            <file name="org-openide-actions-SaveAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-SaveAction.instance"/>
+                <attr name="position" intvalue="100"/>
+                <attr name="iconBase" stringvalue="org/alidron/ribbon/resources/Save.png"/>
+            </file>
+            <file name="SeparatorAfterSave.instance">
+                <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                <attr name="position" intvalue="110"/>
+            </file>
+            <file name="SeparatorBeforeOption.instance">
+                <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                <attr name="position" intvalue="3990"/>
+            </file>
+            <file name="org-netbeans-modules-options-OptionsWindowAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/Window/org-netbeans-modules-options-OptionsWindowAction.instance"/>
+                <attr name="position" intvalue="4000"/>
+                <attr name="iconBase" stringvalue="org/alidron/ribbon/resources/Tools.png"/>
+            </file>
+        </folder>
+        
+        <folder name="AppMenuFooter">
+            <file name="org-netbeans-core-actions-SystemExit.shadow">
+                <attr name="originalFile" stringvalue="Actions/System/org-netbeans-core-actions-SystemExit.instance"/>
+                <attr name="position" intvalue="100"/>
+                <attr name="iconBase" stringvalue="org/alidron/ribbon/resources/Exit.png"/>
+            </file>
+        </folder>
+        
+        <folder name="TaskBar">
+            <file name="org-openide-actions-SaveAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-SaveAction.instance"/>
+                <attr name="position" intvalue="100"/>
+                <attr name="iconBase" stringvalue="org/alidron/ribbon/resources/Save.png"/>
+            </file>
+            <file name="org-openide-actions-SaveAllAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-SaveAllAction.instance"/>
+                <attr name="position" intvalue="200"/>
+            </file>
+            <file name="Separator1.instance">
+                <attr name="instanceClass" stringvalue="javax.swing.JSeparator"/>
+                <attr name="position" intvalue="300"/>
+            </file>
+            <file name="org-openide-actions-RedoAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-RedoAction.instance"/>
+                <attr name="position" intvalue="400"/>
+                <attr name="iconBase" stringvalue="org/alidron/ribbon/resources/Redo.png"/>
+            </file>
+            <file name="org-openide-actions-UndoAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/Edit/org-openide-actions-UndoAction.instance"/>
+                <attr name="position" intvalue="500"/>
+                <attr name="iconBase" stringvalue="org/alidron/ribbon/resources/Undo.png"/>
+            </file>
+        </folder>
+        
+        <folder name="TaskPanes">
+            <folder name="Home">
+                <attr name="position" intvalue="100"/>
+                <folder name="View">
+                    <attr name="position" intvalue="300"/>
+                    <file name="org-netbeans-core-actions-HTMLViewAction.shadow">
+                        <attr name="originalFile" stringvalue="Actions/View/org-netbeans-core-actions-HTMLViewAction.instance"/>
+                        <attr name="position" intvalue="400"/>
+                        <attr name="iconBase" stringvalue="org/alidron/ribbon/resources/WebPage.png"/>
+                        <attr name="priority" stringvalue="medium"/>
+                    </file>
+                    <file name="org-netbeans-core-io-ui-IOWindowAction.shadow">
+                        <attr name="originalFile" stringvalue="Actions/Window/org-netbeans-core-io-ui-IOWindowAction.instance"/>
+                        <attr name="position" intvalue="700"/>
+                        <attr name="priority" stringvalue="medium"/>
+                    </file>
+                </folder>
+            </folder>
+        </folder>
+        
+        <folder name="HelpButton">
+            <file name="org-netbeans-core-actions-AboutAction.shadow">
+                <attr name="originalFile" stringvalue="Actions/Help/org-netbeans-core-actions-AboutAction.instance"/>
+                <attr name="iconBase" stringvalue="org/alidron/ribbon/resources/Info.png"/>
+            </file>
+        </folder>
+    </folder>
+</filesystem>
