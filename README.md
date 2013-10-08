@@ -1,7 +1,5 @@
-designer
-========
-
 The Alidron Designer (IDE)
+==========================
 
 Try it:
 - You need Java 7u6 or more
