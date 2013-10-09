@@ -10,4 +10,14 @@
 /build/
 /ShapeSample/build/
 /RibbonMenu/build/
-#/dist/
+/dist/
+/bcpkix-jdk15on/build/
+/TestSSH/build/
+/sshj/build/
+/slf4j-api/build/
+/bcpkix-jdk15on/nbproject/private/
+/bouncycastle/build/
+/sshj/nbproject/private/
+/slf4j-api/nbproject/private/
+/TestSSH/nbproject/private/
+/bouncycastle/nbproject/private/

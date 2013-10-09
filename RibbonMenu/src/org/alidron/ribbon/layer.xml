@@ -74,6 +74,11 @@
                         <attr name="position" intvalue="700"/>
                         <attr name="priority" stringvalue="medium"/>
                     </file>
+                    <file name="org-openide-actions-PropertiesAction.shadow">
+                        <attr name="originalFile" stringvalue="Actions/System/org-openide-actions-PropertiesAction.instance"/>
+                        <attr name="position" intvalue="800"/>
+                        <attr name="priority" stringvalue="medium"/>
+                    </file>
                 </folder>
             </folder>
         </folder>

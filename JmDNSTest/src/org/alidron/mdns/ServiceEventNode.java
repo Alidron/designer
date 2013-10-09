@@ -17,11 +17,13 @@ import javax.jmdns.ServiceEvent;
 import javax.jmdns.ServiceInfo;
 import javax.swing.Action;
 import org.alidron.mdns.RefreshAction.Refreshable;
+import org.openide.actions.PropertiesAction;
 import org.openide.nodes.AbstractNode;
 import org.openide.nodes.Children;
 import org.openide.nodes.PropertySupport;
 import org.openide.util.Exceptions;
 import org.openide.util.Utilities;
+import org.openide.util.actions.SystemAction;
 import org.openide.util.lookup.AbstractLookup;
 import org.openide.util.lookup.InstanceContent;
 
@@ -67,7 +69,7 @@ public class ServiceEventNode extends AbstractNode {
         }
     }
 
-    private static boolean isServiceType(ServiceEvent event) {
+    public static boolean isServiceType(ServiceEvent event) {
         return (event.getName() == null) || (event.getName().isEmpty());
     }
 
@@ -88,6 +90,7 @@ public class ServiceEventNode extends AbstractNode {
     public Action[] getActions(boolean context) {
         @SuppressWarnings("unchecked") // Because f*ck it, that's why! :-|| See http://docs.oracle.com/javase/tutorial/java/generics/capture.html
         List<Action> actions = (List<Action>) Utilities.actionsForPath("Actions/MDnsActions");
+        actions.add(SystemAction.get(PropertiesAction.class));
         return actions.toArray(new Action[actions.size()]);
     }
     

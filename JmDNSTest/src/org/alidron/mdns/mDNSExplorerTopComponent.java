@@ -22,6 +22,8 @@ import org.openide.explorer.view.BeanTreeView;
 import org.openide.util.Exceptions;
 import org.openide.windows.TopComponent;
 import org.openide.util.NbBundle.Messages;
+import org.openide.util.lookup.AbstractLookup;
+import org.openide.util.lookup.InstanceContent;
 import org.openide.util.lookup.Lookups;
 import org.openide.util.lookup.ProxyLookup;
 
@@ -52,7 +54,7 @@ import org.openide.util.lookup.ProxyLookup;
 public final class mDNSExplorerTopComponent extends TopComponent implements ExplorerManager.Provider {
     
     private final ExplorerManager manager = new ExplorerManager();
-
+    
     public mDNSExplorerTopComponent() {
         initComponents();
         setName(Bundle.CTL_mDNSExplorerTopComponent());

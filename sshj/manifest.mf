@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+OpenIDE-Module: net.schmizz.sshj
+OpenIDE-Module-Localizing-Bundle: net/schmizz/sshj/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+
