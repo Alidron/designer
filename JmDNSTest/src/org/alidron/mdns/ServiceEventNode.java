@@ -17,6 +17,7 @@ import javax.jmdns.ServiceEvent;
 import javax.jmdns.ServiceInfo;
 import javax.swing.Action;
 import org.alidron.mdns.RefreshAction.Refreshable;
+import org.alidron.testssh.spi.SSHCookie;
 import org.openide.actions.PropertiesAction;
 import org.openide.nodes.AbstractNode;
 import org.openide.nodes.Children;
@@ -45,6 +46,20 @@ public class ServiceEventNode extends AbstractNode {
         }
 
     };
+    
+    private final SSHCookie sshCookie = new SSHCookie() {
+
+        @Override
+        public String getServer() {
+            return ServiceEventNode.this.getSSHServer();
+        }
+
+        @Override
+        public int getPort() {
+            return ServiceEventNode.this.getSSHPort();
+        }
+        
+    };
 
     public ServiceEventNode(JmDNS jmdns, ServiceEvent event) {
         this(jmdns, event, new InstanceContent());
@@ -58,6 +73,8 @@ public class ServiceEventNode extends AbstractNode {
 
         if (isServiceType(event)) {
             this.ic.add(this.refreshable);
+        }else if(event.getType().equals("_udisks-ssh._tcp.local.")) {
+            this.ic.add(this.sshCookie);
         }
     }
 
@@ -77,6 +94,14 @@ public class ServiceEventNode extends AbstractNode {
         setChildren(getChildren(this.jmdns, this.event));
     }
 
+    private String getSSHServer() {
+        return this.event.getInfo().getServer();
+    }
+
+    private int getSSHPort() {
+        return this.event.getInfo().getPort();
+    }
+
     @Override
     public String getDisplayName() {
         if (isServiceType(event)) {
@@ -90,6 +115,7 @@ public class ServiceEventNode extends AbstractNode {
     public Action[] getActions(boolean context) {
         @SuppressWarnings("unchecked") // Because f*ck it, that's why! :-|| See http://docs.oracle.com/javase/tutorial/java/generics/capture.html
         List<Action> actions = (List<Action>) Utilities.actionsForPath("Actions/MDnsActions");
+        actions.addAll(Utilities.actionsForPath("Actions/SSHActions"));
         actions.add(SystemAction.get(PropertiesAction.class));
         return actions.toArray(new Action[actions.size()]);
     }
