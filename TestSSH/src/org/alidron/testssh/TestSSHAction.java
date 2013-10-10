@@ -58,30 +58,33 @@ public final class TestSSHAction implements ActionListener {
     private void runMySSH() throws IOException {
         ProgressHandle handle = ProgressHandleFactory.createHandle("Test SSH Connection");
         handle.start(6);
-        
-        handle.progress("SSH connect", 1);
-        SSHProvider sshProvider = Lookup.getDefault().lookup(SSHProvider.class);
-        SSHClient ssh = sshProvider.connect(context.getServer(), context.getPort());
+
         try {
-            handle.progress("Start session", 2);
-            Session session = ssh.startSession();
+            handle.progress("SSH connect", 1);
+            SSHProvider sshProvider = Lookup.getDefault().lookup(SSHProvider.class);
+            SSHClient ssh = sshProvider.connect(context.getServer(), context.getPort());
             try {
-                handle.progress("Send command: ping -c 1 google.com", 3);
-                final Session.Command cmd = session.exec("ping -c 1 google.com");
-                System.out.println(IOUtils.readFully(cmd.getInputStream()).toString());
-                handle.progress("Join on command", 4);
-                cmd.join(5, TimeUnit.SECONDS);
-                System.out.println("\n** exit status: " + cmd.getExitStatus());
+                handle.progress("Start session", 2);
+                Session session = ssh.startSession();
+                try {
+                    handle.progress("Send command: ping -c 1 google.com", 3);
+                    final Session.Command cmd = session.exec("ping -c 1 google.com");
+                    System.out.println(IOUtils.readFully(cmd.getInputStream()).toString());
+                    handle.progress("Join on command", 4);
+                    cmd.join(5, TimeUnit.SECONDS);
+                    System.out.println("\n** exit status: " + cmd.getExitStatus());
+                } finally {
+                    handle.progress("Closing session", 5);
+                    session.close();
+                }
             } finally {
-                handle.progress("Closing session", 5);
-                session.close();
+                handle.progress("SSH disconnect", 6);
+                ssh.disconnect();
             }
         } finally {
-            handle.progress("SSH disconnect", 6);
-            ssh.disconnect();
             handle.finish();
         }
-        
+
         NotifyDescriptor nd = new NotifyDescriptor.Message("SSH test connection succeeded!", NotifyDescriptor.INFORMATION_MESSAGE);
         DialogDisplayer.getDefault().notify(nd);
     }
