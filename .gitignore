@@ -21,3 +21,6 @@
 /slf4j-api/nbproject/private/
 /TestSSH/nbproject/private/
 /bouncycastle/nbproject/private/
+/FindBugs/build/
+/Assh/build/
+/FindBugs/nbproject/private/
