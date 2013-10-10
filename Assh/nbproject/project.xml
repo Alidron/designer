@@ -7,7 +7,7 @@
             <suite-component/>
             <module-dependencies>
                 <dependency>
-                    <code-name-base>edu.umd.cs.findbugs</code-name-base>
+                    <code-name-base>edu.umd.cs.findbugs.annotations</code-name-base>
                     <build-prerequisite/>
                     <compile-dependency/>
                     <run-dependency>

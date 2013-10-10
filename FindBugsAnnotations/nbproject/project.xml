@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.apisupport.project</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/nb-module-project/3">
+            <code-name-base>edu.umd.cs.findbugs.annotations</code-name-base>
+            <suite-component/>
+            <module-dependencies/>
+            <public-packages>
+                <package>edu.umd.cs.findbugs.annotations</package>
+                <package>javax.annotation</package>
+                <package>javax.annotation.concurrent</package>
+                <package>javax.annotation.meta</package>
+                <package>net.jcip.annotations</package>
+            </public-packages>
+            <class-path-extension>
+                <runtime-relative-path>ext/annotations.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/annotations.jar</binary-origin>
+            </class-path-extension>
+            <class-path-extension>
+                <runtime-relative-path>ext/jsr305.jar</runtime-relative-path>
+                <binary-origin>release/modules/ext/jsr305.jar</binary-origin>
+            </class-path-extension>
+        </data>
+    </configuration>
+</project>

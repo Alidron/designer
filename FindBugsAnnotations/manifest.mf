@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+OpenIDE-Module: edu.umd.cs.findbugs.annotations
+OpenIDE-Module-Localizing-Bundle: edu/umd/cs/findbugs/annotations/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.0
+
