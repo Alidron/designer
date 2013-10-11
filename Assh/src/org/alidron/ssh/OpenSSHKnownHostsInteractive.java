@@ -68,7 +68,7 @@ public class OpenSSHKnownHostsInteractive extends OpenSSHKnownHosts {
                     + "add correct host key in %s to get rid of this message.%n",
                     type, fp, path);
             NotifyDescriptor nd = new NotifyDescriptor.Message(msg, NotifyDescriptor.WARNING_MESSAGE);
-            DialogDisplayer.getDefault().notify(nd);
+            DialogDisplayer.getDefault().notifyLater(nd);
             return false;
         }
     

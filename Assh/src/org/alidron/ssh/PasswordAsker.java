@@ -8,20 +8,22 @@ package org.alidron.ssh;
 import net.schmizz.sshj.userauth.password.PasswordFinder;
 import net.schmizz.sshj.userauth.password.Resource;
 import org.netbeans.api.keyring.Keyring;
+import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
-import org.openide.NotifyDescriptor;
 
 /**
  *
  * @author lexa
  */
-@edu.umd.cs.findbugs.annotations.SuppressWarnings(value="PZLA_PREFER_ZERO_LENGTH_ARRAYS", justification="Returning null means user cancelled")
 public class PasswordAsker implements PasswordFinder {
 
     private int counter = 0;
     private boolean cancelled = false;
 
     @Override
+    @edu.umd.cs.findbugs.annotations.SuppressWarnings(
+            value="PZLA_PREFER_ZERO_LENGTH_ARRAYS",
+            justification="Returning null means user cancelled")
     public char[] reqPassword(Resource<?> rsrc) {
         if(cancelled)
             return null;
@@ -30,9 +32,11 @@ public class PasswordAsker implements PasswordFinder {
         char[] pwd = Keyring.read(key);
         
         if((pwd == null) || (counter > 0)) {
-            pwd = this.promptForPassword(rsrc);
-            if(pwd != null) {
-                Keyring.save(key, pwd.clone(), "Alidron credential for " + key);
+            PasswordAskerForm form = this.promptForPassword(rsrc);
+            if(form != null) {
+                pwd = form.getInputPassword();
+                if(form.shouldSavePassword())
+                    Keyring.save(key, pwd.clone(), "Alidron credential for " + key);
             }
         }
         
@@ -44,16 +48,16 @@ public class PasswordAsker implements PasswordFinder {
         return pwd;
     }
     
-    private char[] promptForPassword(Resource<?> rsrc) {
-        String txt = "Password (warning, clear text): ";
+    private PasswordAskerForm promptForPassword(Resource<?> rsrc) {
+        PasswordAskerForm form = new PasswordAskerForm();
         String title = String.format("Password for %s", rsrc.getDetail().toString());
         
-        NotifyDescriptor.InputLine input = new NotifyDescriptor.InputLine(txt, title);
-        if (DialogDisplayer.getDefault().notify(input) != NotifyDescriptor.OK_OPTION) {
+        DialogDescriptor input = new DialogDescriptor(form, title);
+        if (DialogDisplayer.getDefault().notify(input) != DialogDescriptor.OK_OPTION) {
             return null;
         }
         
-        return input.getInputText().toCharArray();
+        return form;
     }
 
     @Override
