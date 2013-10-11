@@ -8,12 +8,13 @@ package org.alidron.ssh.spi;
 
 import java.io.IOException;
 import net.schmizz.sshj.SSHClient;
+import org.openide.util.Lookup;
 
 /**
  *
  * @author lexa
  */
-public interface SSHProvider {
+public abstract class SSHProvider {
     
     /**
      * Return an {@link net.schmizz.sshj.SSHClient SSHClient} object already connected and authentified.
@@ -27,6 +28,14 @@ public interface SSHProvider {
      * @return {@link net.schmizz.sshj.SSHClient SSHClient} object or null if user cancelled the operation.
      * @throws java.io.IOException
      */
-    public SSHClient connect(String server, int port) throws IOException;
+    public abstract SSHClient connect(String server, int port) throws IOException;
+    
+    /**
+     * Static method to obtain the SSHProvider service.
+     * @return the SSHProvider in the system.
+     */
+    public static SSHProvider getDefault() {
+        return Lookup.getDefault().lookup(SSHProvider.class);
+    }
     
 }

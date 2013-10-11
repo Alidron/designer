@@ -21,7 +21,6 @@ import org.openide.NotifyDescriptor;
 import org.openide.awt.ActionID;
 import org.openide.awt.ActionRegistration;
 import org.openide.util.Exceptions;
-import org.openide.util.Lookup;
 import org.openide.util.NbBundle.Messages;
 import org.openide.util.RequestProcessor;
 
@@ -61,7 +60,7 @@ public final class TestSSHAction implements ActionListener {
 
         try {
             handle.progress("SSH connect", 1);
-            SSHProvider sshProvider = Lookup.getDefault().lookup(SSHProvider.class);
+            SSHProvider sshProvider = SSHProvider.getDefault();
             SSHClient ssh = sshProvider.connect(context.getServer(), context.getPort());
             try {
                 handle.progress("Start session", 2);

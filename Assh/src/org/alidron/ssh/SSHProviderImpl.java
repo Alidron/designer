@@ -29,7 +29,7 @@ import org.openide.util.lookup.ServiceProvider;
  * @author lexa
  */
 @ServiceProvider(service = SSHProvider.class)
-public class SSHProviderImpl implements SSHProvider {
+public class SSHProviderImpl extends SSHProvider {
 
     private static final boolean initDone = init();
 
